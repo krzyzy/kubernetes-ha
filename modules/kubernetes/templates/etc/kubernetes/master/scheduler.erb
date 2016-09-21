@@ -1,0 +1,67 @@
+# managed by puppet
+###
+# kubernetes scheduler config
+# default config should be adequate
+
+KUBE_SCHEDULER_ARGS="<% -%>
+<% if @scheduler_address then -%>
+ --address=<%= scope['kubernetes::master::scheduler::scheduler_address'] -%>
+<% end -%>
+<% if @scheduler_algorithm_provider then -%>
+ --algorithm-provider=<%= scope['kubernetes::master::scheduler::scheduler_algorithm_provider'] -%>
+<% end -%>
+<% if @scheduler_alsologtostderr then -%>
+ --alsologtostderr=<%= scope['kubernetes::master::scheduler::scheduler_alsologtostderr'] -%>
+<% end -%>
+<% if @scheduler_kube_api_burst then -%>
+ --kube-api-burst=<%= scope['kubernetes::master::scheduler::scheduler_kube_api_burst'] -%>
+<% end -%>
+<% if @scheduler_kube_api_qps then -%>
+ --kube-api-qps=<%= scope['kubernetes::master::scheduler::scheduler_kube_api_qps'] -%>
+<% end -%>
+<% if @scheduler_kubeconfig then -%>
+ --kubeconfig=<%= scope['kubernetes::master::scheduler::scheduler_kubeconfig'] -%>
+<% end -%>
+<% if @scheduler_leader_elect then -%>
+ --leader-elect=<%= scope['kubernetes::master::scheduler::scheduler_leader_elect'] -%>
+ --leader-elect-lease-duration=<%= scope['kubernetes::master::scheduler::scheduler_leader_elect_lease_duration'] -%>
+ --leader-elect-renew-deadline=<%= scope['kubernetes::master::scheduler::scheduler_leader_elect_renew_deadline'] -%>
+ --leader-elect-retry-period=<%= scope['kubernetes::master::scheduler::scheduler_leader_elect_retry_period'] -%>
+<% end -%>
+<% if @scheduler_log_backtrace_at then -%>
+ --log-backtrace-at=<%= scope['kubernetes::master::scheduler::scheduler_log_backtrace_at'] -%>
+<% end -%>
+<% if @scheduler_log_dir then -%>
+ --log-dir=<%= scope['kubernetes::master::scheduler::scheduler_log_dir'] -%>
+<% end -%>
+<% if @scheduler_log_flush_frequency then -%>
+ --log-flush-frequency=<%= scope['kubernetes::master::scheduler::scheduler_log_flush_frequency'] -%>
+<% end -%>
+<% if @scheduler_logtostderr then -%>
+ --logtostderr=<%= scope['kubernetes::master::scheduler::scheduler_logtostderr'] -%>
+<% end -%>
+<% if @scheduler_master then -%>
+ --master=<%= scope['kubernetes::master::scheduler::scheduler_master'] -%>
+<% end -%>
+<% if @scheduler_policy_config_file then -%>
+ --policy-config-file=<%= scope['kubernetes::master::scheduler::scheduler_policy_config_file'] -%>
+<% end -%>
+<% if @scheduler_port then -%>
+ --port=<%= scope['kubernetes::master::scheduler::scheduler_port'] -%>
+<% end -%>
+<% if @scheduler_profiling then -%>
+ --profiling=<%= scope['kubernetes::master::scheduler::scheduler_profiling'] -%>
+<% end -%>
+<% if @scheduler_scheduler_name then -%>
+ --scheduler-name=<%= scope['kubernetes::master::scheduler::scheduler_scheduler_name'] -%>
+<% end -%>
+<% if @scheduler_stderrthreshold then -%>
+ --stderrthreshold=<%= scope['kubernetes::master::scheduler::scheduler_stderrthreshold'] -%>
+<% end -%>
+<% if @scheduler_v then -%>
+ --v=<%= scope['kubernetes::master::scheduler::scheduler_v'] -%>
+<% end -%>
+<% if @scheduler_vmodule then -%>
+ --vmodule=<%= scope['kubernetes::master::scheduler::scheduler_vmodule'] -%>
+<% end -%>
+"

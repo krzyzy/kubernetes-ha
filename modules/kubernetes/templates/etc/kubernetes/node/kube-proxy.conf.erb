@@ -1,0 +1,87 @@
+###
+# kubernetes proxy config
+
+# default config should be adequate
+KUBE_PROXY_ARGS="<% -%>
+<% if @kubeproxy_alsologtostderr -%>
+ --alsologtostderr=<%= scope['kubernetes::node::kube_proxy::kubeproxy_alsologtostderr'] -%>
+<% end -%>
+<% if @kubeproxy_bind_address -%>
+ --bind-address=<%= scope['kubernetes::node::kube_proxy::kubeproxy_bind_address'] -%>
+<% end -%>
+<% if @kubeproxy_cleanup_iptables -%>
+ --cleanup-iptables=<%= scope['kubernetes::node::kube_proxy::kubeproxy_cleanup_iptables'] -%>
+<% end -%>
+<% if @kubeproxy_config_sync_period -%>
+ --config-sync-period=<%= scope['kubernetes::node::kube_proxy::kubeproxy_config_sync_period'] -%>
+<% end -%>
+<% if @kubeproxy_conntrack_max -%>
+ --conntrack-max=<%= scope['kubernetes::node::kube_proxy::kubeproxy_conntrack_max'] -%>
+<% end -%>
+<% if @kubeproxy_conntrack_tcp_timeout_established -%>
+ --conntrack-tcp-timeout-established=<%= scope['kubernetes::node::kube_proxy::kubeproxy_conntrack_tcp_timeout_established'] -%>
+<% end -%>
+<% if @kubeproxy_healthz_bind_address -%>
+ --healthz-bind-address=<%= scope['kubernetes::node::kube_proxy::kubeproxy_healthz_bind_address'] -%>
+<% end -%>
+<% if @kubeproxy_healthz_port -%>
+ --healthz-port=<%= scope['kubernetes::node::kube_proxy::kubeproxy_healthz_port'] -%>
+<% end -%>
+<% if @kubeproxy_hostname_override -%>
+ --hostname-override=<%= scope['kubernetes::node::kube_proxy::kubeproxy_hostname_override'] -%>
+<% end -%>
+<% if @kubeproxy_iptables_masquerade_bit -%>
+ --iptables-masquerade-bit=<%= scope['kubernetes::node::kube_proxy::kubeproxy_iptables_masquerade_bit'] -%>
+<% end -%>
+<% if @kubeproxy_iptables_sync_period -%>
+ --iptables-sync-period=<%= scope['kubernetes::node::kube_proxy::kubeproxy_iptables_sync_period'] -%>
+<% end -%>
+<% if @kubeproxy_kube_api_burst -%>
+ --kube-api-burst=<%= scope['kubernetes::node::kube_proxy::kubeproxy_kube_api_burst'] -%>
+<% end -%>
+<% if @kubeproxy_kube_api_qps -%>
+ --kube-api-qps=<%= scope['kubernetes::node::kube_proxy::kubeproxy_kube_api_qps'] -%>
+<% end -%>
+<% if @kubeproxy_kubeconfig -%>
+ --kubeconfig=<%= scope['kubernetes::node::kube_proxy::kubeproxy_kubeconfig'] -%>
+<% end -%>
+<% if @kubeproxy_log_backtrace_at -%>
+ --log-backtrace-at=<%= scope['kubernetes::node::kube_proxy::kubeproxy_log_backtrace_at'] -%>
+<% end -%>
+<% if @kubeproxy_log_dir -%>
+ --log-dir=<%= scope['kubernetes::node::kube_proxy::kubeproxy_log_dir'] -%>
+<% end -%>
+<% if @kubeproxy_log_flush_frequency -%>
+ --log-flush-frequency=<%= scope['kubernetes::node::kube_proxy::kubeproxy_log_flush_frequency'] -%>
+<% end -%>
+<% if @kubeproxy_logtostderr -%>
+ --logtostderr=<%= scope['kubernetes::node::kube_proxy::kubeproxy_logtostderr'] -%>
+<% end -%>
+<% if @kubeproxy_masquerade_all -%>
+ --masquerade-all[=<%= scope['kubernetes::node::kube_proxy::kubeproxy_masquerade_all'] -%>
+<% end -%>
+<% if @kubeproxy_master -%>
+ --master=<%= scope['kubernetes::node::kube_proxy::kubeproxy_master'] -%>
+<% end -%>
+<% if @kubeproxy_oom_score_adj -%>
+ --oom-score-adj=<%= scope['kubernetes::node::kube_proxy::kubeproxy_oom_score_adj'] -%>
+<% end -%>
+<% if @kubeproxy_proxy_mode -%>
+ --proxy-mode=<%= scope['kubernetes::node::kube_proxy::kubeproxy_proxy_mode'] -%>
+<% end -%>
+<% if @kubeproxy_proxy_port_range -%>
+ --proxy-port-range=<%= scope['kubernetes::node::kube_proxy::kubeproxy_proxy_port_range'] -%>
+<% end -%>
+<% if @kubeproxy_stderrthreshold -%>
+ --stderrthreshold=<%= scope['kubernetes::node::kube_proxy::kubeproxy_stderrthreshold'] -%>
+<% end -%>
+<% if @kubeproxy_udp_timeout -%>
+ --udp-timeout=<%= scope['kubernetes::node::kube_proxy::kubeproxy_udp_timeout'] -%>
+<% end -%>
+<% if @kubeproxy_v -%>
+ --v=<%= scope['kubernetes::node::kube_proxy::kubeproxy_v'] -%>
+<% end -%>
+<% if @kubeproxy_vmodule -%>
+ --vmodule=<%= scope['kubernetes::node::kube_proxy::kubeproxy_vmodule'] -%>
+<% end -%>
+"

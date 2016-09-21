@@ -1,0 +1,52 @@
+{
+	"name": "puppet-kubernetes",
+	"version": "0.0.1",
+	"author": "OiSiS",
+	"license": "Apache-2.0",
+	"summary": "Configuring and installing kubernetes",
+	"source": "git@github.com:oisis/puppet-kubernetes.git",
+	"project_page": "https://github.com/oisis/puppet-kubernetes",
+	"issues_url": "https://github.com/oisis/puppet-kubernetes/issues",
+	"requirements": [],
+	"operatingsystem_support": [{
+			"operatingsystem": "RedHat",
+			"operatingsystemrelease": [ "7"
+			]
+		},{
+			"operatingsystem": "CentOS",
+			"operatingsystemrelease": [ "7"
+			]
+		},{
+			"operatingsystem": "OracleLinux",
+			"operatingsystemrelease": [ "7"
+			]
+		},{
+			"operatingsystem": "Scientific",
+			"operatingsystemrelease": [ "7"
+			]
+		},{
+			"operatingsystem": "Fedora",
+			"operatingsystemrelease": [ "21"
+			]
+		}
+	],
+	"tags": [ "kubernetes",
+		"docker",
+		"kubelet",
+		"kubectl",
+		"kubernetes-master",
+		"kubernetes-node",
+		"kubernetes-client"
+	],
+	"dependencies": [{
+			"name": "puppetlabs/stdlib",
+			"version_requirement": "4.x"
+		},{
+			"name": "puppetlabs/concat",
+			"version_requirement": "2.x"
+		},{
+			"name": "cristifalcas/docker",
+			"version_requirement": "5.x"
+		}
+	]
+}

@@ -1,0 +1,239 @@
+###
+# kubernetes system config
+#
+# The following values are used to configure the kube-apiserver
+#
+
+# The address on the local server to listen to.
+KUBE_API_ADDRESS="--insecure-bind-address=<%= scope['kubernetes::master::apiserver::apisrv_insecure_bind_address'] %>"
+
+# The port on the local server to listen on.
+KUBE_API_PORT="--insecure-port=<%= scope['kubernetes::master::apiserver::apisrv_insecure_port'] %>"
+
+# Address range to use for services
+KUBE_SERVICE_ADDRESSES="--service-cluster-ip-range=<%= scope['kubernetes::master::apiserver::apisrv_service_cluster_ip_range'] %>"
+
+# default admission control policies
+KUBE_ADMISSION_CONTROL="--admission-control=<%= Array(scope['kubernetes::master::apiserver::apisrv_admission_control']).join(',') %>"
+
+KUBE_API_ARGS="<% -%>
+<% if @apisrv_admission_control_config_file then -%>
+ --admission-control-config-file=<%= scope['kubernetes::master::apiserver::apisrv_admission_control_config_file'] -%>
+<% end -%>
+<% if @apisrv_advertise_address then -%>
+ --advertise-address=<%= scope['kubernetes::master::apiserver::apisrv_advertise_address'] -%>
+<% end -%>
+<% if @apisrv_allow_privileged then -%>
+ --allow-privileged=<%= scope['kubernetes::master::apiserver::apisrv_allow_privileged'] -%>
+<% end -%>
+<% if @apisrv_alsologtostderr then -%>
+ --alsologtostderr=<%= scope['kubernetes::master::apiserver::apisrv_alsologtostderr'] -%>
+<% end -%>
+<% if @apisrv_count then -%>
+ --apiserver-count=<%= scope['kubernetes::master::apiserver::apisrv_count'] -%>
+<% end -%>
+<% if @apisrv_authorization_mode then -%>
+ --authorization-mode=<%= scope['kubernetes::master::apiserver::apisrv_authorization_mode'] -%>
+<% end -%>
+<% if @apisrv_authorization_policy_file then -%>
+ --authorization-policy-file=<%= scope['kubernetes::master::apiserver::apisrv_authorization_policy_file'] -%>
+<% end -%>
+<% if @apisrv_authorization_webhook_config_file then -%>
+ --authorization-webhook-config-file=<%= scope['kubernetes::master::apiserver::apisrv_authorization_webhook_config_file'] -%>
+<% end -%>
+<% if @apisrv_basic_auth_file then -%>
+ --basic-auth-file=<%= scope['kubernetes::master::apiserver::apisrv_basic_auth_file'] -%>
+<% end -%>
+<% if @apisrv_bind_address then -%>
+ --bind-address=<%= scope['kubernetes::master::apiserver::apisrv_bind_address'] -%>
+<% end -%>
+<% if @apisrv_cert_dir then -%>
+ --cert-dir=<%= scope['kubernetes::master::apiserver::apisrv_cert_dir'] -%>
+<% end -%>
+<% if @apisrv_client_ca_file then -%>
+ --client-ca-file=<%= scope['kubernetes::master::apiserver::apisrv_client_ca_file'] -%>
+<% end -%>
+<% if @apisrv_cloud_config then -%>
+ --cloud-config=<%= scope['kubernetes::master::apiserver::apisrv_cloud_config'] -%>
+<% end -%>
+<% if @apisrv_cloud_provider then -%>
+ --cloud-provider=<%= scope['kubernetes::master::apiserver::apisrv_cloud_provider'] -%>
+<% end -%>
+<% if @apisrv_cors_allowed_origins then -%>
+ --cors-allowed-origins=<%= scope['kubernetes::master::apiserver::apisrv_cors_allowed_origins'] -%>
+<% end -%>
+<% if @apisrv_delete_collection_workers then -%>
+ --delete-collection-workers=<%= scope['kubernetes::master::apiserver::apisrv_delete_collection_workers'] -%>
+<% end -%>
+<% if @apisrv_etcd_cafile then -%>
+ --etcd-cafile=<%= scope['kubernetes::master::apiserver::apisrv_etcd_cafile'] -%>
+<% end -%>
+<% if @apisrv_etcd_certfile then -%>
+ --etcd-certfile=<%= scope['kubernetes::master::apiserver::apisrv_etcd_certfile'] -%>
+<% end -%>
+<% if @apisrv_etcd_keyfile then -%>
+ --etcd-keyfile=<%= scope['kubernetes::master::apiserver::apisrv_etcd_keyfile'] -%>
+<% end -%>
+<% if @apisrv_etcd_prefix then -%>
+ --etcd-prefix=<%= scope['kubernetes::master::apiserver::apisrv_etcd_prefix'] -%>
+<% end -%>
+<% if @apisrv_etcd_quorum_read then -%>
+ --etcd-quorum-read=<%= scope['kubernetes::master::apiserver::apisrv_etcd_quorum_read'] -%>
+<% end -%>
+<% if @apisrv_etcd_servers then -%>
+ --etcd-servers=<%= scope['kubernetes::master::apiserver::apisrv_etcd_servers'] -%>
+<% end -%>
+<% if @apisrv_etcd_servers_overrides then -%>
+ --etcd-servers-overrides=<%= scope['kubernetes::master::apiserver::apisrv_etcd_servers_overrides'] -%>
+<% end -%>
+<% if @apisrv_event_ttl then -%>
+ --event-ttl=<%= scope['kubernetes::master::apiserver::apisrv_event_ttl'] -%>
+<% end -%>
+<% if @apisrv_experimental_keystone_url then -%>
+ --experimental-keystone-url=<%= scope['kubernetes::master::apiserver::apisrv_experimental_keystone_url'] -%>
+<% end -%>
+<% if @apisrv_external_hostname then -%>
+ --external-hostname=<%= scope['kubernetes::master::apiserver::apisrv_external_hostname'] -%>
+<% end -%>
+<% if @apisrv_httptest_serve then -%>
+ --httptest.serve=<%= scope['kubernetes::master::apiserver::apisrv_httptest_serve'] -%>
+<% end -%>
+<% if @apisrv_ir_data_source then -%>
+ --ir-data-source=<%= scope['kubernetes::master::apiserver::apisrv_ir_data_source'] -%>
+<% end -%>
+<% if @apisrv_ir_dbname then -%>
+ --ir-dbname=<%= scope['kubernetes::master::apiserver::apisrv_ir_dbname'] -%>
+<% end -%>
+<% if @apisrv_ir_hawkular then -%>
+ --ir-hawkular=<%= scope['kubernetes::master::apiserver::apisrv_ir_hawkular'] -%>
+<% end -%>
+<% if @apisrv_ir_influxdb_host then -%>
+ --ir-influxdb-host=<%= scope['kubernetes::master::apiserver::apisrv_ir_influxdb_host'] -%>
+<% end -%>
+<% if @apisrv_ir_namespace_only then -%>
+ --ir-namespace-only=<%= scope['kubernetes::master::apiserver::apisrv_ir_namespace_only'] -%>
+<% end -%>
+<% if @apisrv_ir_password then -%>
+ --ir-password=<%= scope['kubernetes::master::apiserver::apisrv_ir_password'] -%>
+<% end -%>
+<% if @apisrv_ir_percentile then -%>
+ --ir-percentile=<%= scope['kubernetes::master::apiserver::apisrv_ir_percentile'] -%>
+<% end -%>
+<% if @apisrv_ir_user then -%>
+ --ir-user=<%= scope['kubernetes::master::apiserver::apisrv_ir_user'] -%>
+<% end -%>
+<% if @apisrv_kubelet_certificate_authority then -%>
+ --kubelet-certificate-authority=<%= scope['kubernetes::master::apiserver::apisrv_kubelet_certificate_authority'] -%>
+<% end -%>
+<% if @apisrv_kubelet_client_certificate then -%>
+ --kubelet-client-certificate=<%= scope['kubernetes::master::apiserver::apisrv_kubelet_client_certificate'] -%>
+<% end -%>
+<% if @apisrv_kubelet_client_key then -%>
+ --kubelet-client-key=<%= scope['kubernetes::master::apiserver::apisrv_kubelet_client_key'] -%>
+<% end -%>
+<% if @apisrv_kubelet_https then -%>
+ --kubelet-https=<%= scope['kubernetes::master::apiserver::apisrv_kubelet_https'] -%>
+<% end -%>
+<% if @apisrv_kubelet_timeout then -%>
+ --kubelet-timeout=<%= scope['kubernetes::master::apiserver::apisrv_kubelet_timeout'] -%>
+<% end -%>
+<% if @apisrv_kubernetes_service_node_port then -%>
+ --kubernetes-service-node-port=<%= scope['kubernetes::master::apiserver::apisrv_kubernetes_service_node_port'] -%>
+<% end -%>
+<% if @apisrv_log_backtrace_at then -%>
+ --log-backtrace-at=<%= scope['kubernetes::master::apiserver::apisrv_log_backtrace_at'] -%>
+<% end -%>
+<% if @apisrv_log_dir then -%>
+ --log-dir=<%= scope['kubernetes::master::apiserver::apisrv_log_dir'] -%>
+<% end -%>
+<% if @apisrv_log_flush_frequency then -%>
+ --log-flush-frequency=<%= scope['kubernetes::master::apiserver::apisrv_log_flush_frequency'] -%>
+<% end -%>
+<% if @apisrv_logtostderr then -%>
+ --logtostderr=<%= scope['kubernetes::master::apiserver::apisrv_logtostderr'] -%>
+<% end -%>
+<% if @apisrv_long_running_request_regexp then -%>
+ --long-running-request-regexp=<%= scope['kubernetes::master::apiserver::apisrv_long_running_request_regexp'] -%>
+<% end -%>
+<% if @apisrv_master_service_namespace then -%>
+ --master-service-namespace=<%= scope['kubernetes::master::apiserver::apisrv_master_service_namespace'] -%>
+<% end -%>
+<% if @apisrv_max_connection_bytes_per_sec then -%>
+ --max-connection-bytes-per-sec=<%= scope['kubernetes::master::apiserver::apisrv_max_connection_bytes_per_sec'] -%>
+<% end -%>
+<% if @apisrv_max_requests_inflight then -%>
+ --max-requests-inflight=<%= scope['kubernetes::master::apiserver::apisrv_max_requests_inflight'] -%>
+<% end -%>
+<% if @apisrv_min_reques_timeout then -%>
+ --min-request-timeout=<%= scope['kubernetes::master::apiserver::apisrv_min_reques_timeout'] -%>
+<% end -%>
+<% if @apisrv_oidc_ca_file then -%>
+ --oidc-ca-file=<%= scope['kubernetes::master::apiserver::apisrv_oidc_ca_file'] -%>
+<% end -%>
+<% if @apisrv_oidc_client_id then -%>
+ --oidc-client-id=<%= scope['kubernetes::master::apiserver::apisrv_oidc_client_id'] -%>
+<% end -%>
+<% if @apisrv_oidc_groups_claim then -%>
+ --oidc-groups-claim=<%= scope['kubernetes::master::apiserver::apisrv_oidc_groups_claim'] -%>
+<% end -%>
+<% if @apisrv_oidc_issuer_url then -%>
+ --oidc-issuer-url=<%= scope['kubernetes::master::apiserver::apisrv_oidc_issuer_url'] -%>
+<% end -%>
+<% if @apisrv_oidc_username_claim then -%>
+ --oidc-username-claim=<%= scope['kubernetes::master::apiserver::apisrv_oidc_username_claim'] -%>
+<% end -%>
+<% if @apisrv_profiling then -%>
+ --profiling=<%= scope['kubernetes::master::apiserver::apisrv_profiling'] -%>
+<% end -%>
+<% if @apisrv_repair_malformed_updates then -%>
+ --repair-malformed-updates=<%= scope['kubernetes::master::apiserver::apisrv_repair_malformed_updates'] -%>
+<% end -%>
+<% if @apisrv_runtime_config then -%>
+ --runtime-config=<%= scope['kubernetes::master::apiserver::apisrv_runtime_config'] -%>
+<% end -%>
+<% if @apisrv_secure_port then -%>
+ --secure-port=<%= scope['kubernetes::master::apiserver::apisrv_secure_port'] -%>
+<% end -%>
+<% if @apisrv_service_account_key_file then -%>
+ --service-account-key-file=<%= scope['kubernetes::master::apiserver::apisrv_service_account_key_file'] -%>
+<% end -%>
+<% if @apisrv_service_account_lookup then -%>
+ --service-account-lookup=<%= scope['kubernetes::master::apiserver::apisrv_service_account_lookup'] -%>
+<% end -%>
+<% if @apisrv_service_cluster_port_range then -%>
+ --service-node-port-range=<%= scope['kubernetes::master::apiserver::apisrv_service_cluster_port_range'] -%>
+<% end -%>
+<% if @apisrv_ssh_keyfile then -%>
+ --ssh-keyfile=<%= scope['kubernetes::master::apiserver::apisrv_ssh_keyfile'] -%>
+<% end -%>
+<% if @apisrv_ssh_user then -%>
+ --ssh-user=<%= scope['kubernetes::master::apiserver::apisrv_ssh_user'] -%>
+<% end -%>
+<% if @apisrv_stderrthreshold then -%>
+ --stderrthreshold=<%= scope['kubernetes::master::apiserver::apisrv_stderrthreshold'] -%>
+<% end -%>
+<% if @apisrv_storage_versions then -%>
+ --storage-versions=<%= scope['kubernetes::master::apiserver::apisrv_storage_versions'] -%>
+<% end -%>
+<% if @apisrv_tls_cert_file then -%>
+ --tls-cert-file=<%= scope['kubernetes::master::apiserver::apisrv_tls_cert_file'] -%>
+<% end -%>
+<% if @apisrv_tls_private_key_file then -%>
+ --tls-private-key-file=<%= scope['kubernetes::master::apiserver::apisrv_tls_private_key_file'] -%>
+<% end -%>
+<% if @apisrv_token_auth_file then -%>
+ --token-auth-file=<%= scope['kubernetes::master::apiserver::apisrv_token_auth_file'] -%>
+<% end -%>
+<% if @apisrv_v then -%>
+ --v=<%= scope['kubernetes::master::apiserver::apisrv_v'] -%>
+<% end -%>
+<% if @apisrv_vmodule then -%>
+ --vmodule=<%= scope['kubernetes::master::apiserver::apisrv_vmodule'] -%>
+<% end -%>
+<% if @apisrv_watch_cache then -%>
+ --watch-cache=<%= scope['kubernetes::master::apiserver::apisrv_watch_cache'] -%>
+<% end -%>
+<% if @apisrv_watch_cache_sizes then -%>
+ --watch-cache-sizes=<%= scope['kubernetes::master::apiserver::apisrv_watch_cache_sizes'] -%>
+<% end -%>
+"
