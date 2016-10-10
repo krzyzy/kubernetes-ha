@@ -1,0 +1,21 @@
+{
+  "Gemfile": "1ba526f6b04a00017cb6b8deb60ebc80",
+  "LICENSE": "7d423e80a51a0320567fc3faa3ce3209",
+  "README.md": "9508481b1a4f03dc62c91e34a297233b",
+  "Rakefile": "3666df1e2d06afca2fb0ff7dd65d68f6",
+  "lib/puppet/provider/etcd_key/etcdctl.rb": "a525c22337c79c901504aa2662f7edb1",
+  "lib/puppet/type/etcd_key.rb": "eb0b0e8a436c98df5f2cd759bccca5e1",
+  "manifests/config.pp": "0fed3729a40134820f93fa5bc45e366a",
+  "manifests/init.pp": "76eb050c39ee8ae70b943bbbde478b34",
+  "manifests/install.pp": "abbbef0e380dbb8842ebf56b487434bf",
+  "manifests/params.pp": "e4feb53c69c705c5afc4976763f8227b",
+  "manifests/service.pp": "d705b3ba77c8e1ed03cdff372716a726",
+  "metadata.json": "e9fd3dfcfa81f3f26861f0d0a88a960d",
+  "spec/classes/etcd_spec.rb": "1adbeaa1074092ab610f27eec2a8a026",
+  "spec/classes/params_spec.rb": "e590cff204aa167e222b716b2d3d8fef",
+  "spec/classes/service_spec.rb": "ba906d7b90eadfe4ab8e2a98c70f1830",
+  "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+  "spec/spec_helper.rb": "3ea886dd135e120afa31e0aab12e85b0",
+  "templates/etc/etcd/etcd.conf.erb": "ebe5802686af066fe2c6c9a1c3401a79",
+  "tests/init.pp": "26b03c955a9720b9b084e417ae94507c"
+}

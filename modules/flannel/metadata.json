@@ -1,0 +1,67 @@
+{
+  "name": "cristifalcas-flannel",
+  "version": "1.5.0",
+  "author": "Cristian Falcas",
+  "summary": "flannel is a virtual network that gives a subnet to each host for use with container runtimes.",
+  "license": "Apache-2.0",
+  "source": "git@github.com:cristifalcas/puppet-flannel.git",
+  "project_page": "https://github.com/cristifalcas/puppet-flannel",
+  "issues_url": "https://github.com/cristifalcas/puppet-flannel/issues",
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">= 4.6.0 < 5.0.0"},
+    {"name":"cristifalcas/docker","version_requirement":"5.x"},
+    {"name":"cristifalcas/etcd","version_requirement":"1.x"}
+  ],
+  "tags": [
+    "flannel",
+    "docker"
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": "3.x"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">=3.4.0 <5.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Fedora",
+      "operatingsystemrelease": [
+        "21"
+      ]
+    },
+    {
+      "operatingsystem": "Debian"
+    },
+    {
+      "operatingsystem": "Ubuntu"
+    }
+  ]
+}
