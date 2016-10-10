@@ -1,0 +1,31 @@
+---
+nginx::nginx_upstreams:
+  'etcd_cluster_2379':
+    ensure: present
+    members:
+      - etcd-01.kube.accuratus-software.pl:2379
+      - etcd-02.kube.accuratus-software.pl:2379
+      - etcd-03.kube.accuratus-software.pl:2379
+  'etcd_cluster_4001':
+    ensure: present
+    members:
+      - etcd-01.kube.accuratus-software.pl:4001
+      - etcd-02.kube.accuratus-software.pl:4001
+      - etcd-03.kube.accuratus-software.pl:4001
+  'k8s_cluster_8080':
+    ensure: present
+    members:
+      - master-01.kube.accuratus-software.pl:8080
+      - master-02.kube.accuratus-software.pl:8080
+nginx::nginx_vhosts:
+  'lb-01.kube.accuratus-software.pl-2379':
+    proxy: 'http://etcd_cluster_2379'
+    listen_port: '2379'
+  'lb-01.kube.accuratus-software.pl-4001':
+    proxy: 'http://etcd_cluster_4001'
+    listen_port: '4001'
+  'lb-01.kube.accuratus-software.pl-8080':
+    proxy: 'http://k8s_cluster_8080'
+    listen_port: '8080'
+
+nginx::server_tokens: 'off'

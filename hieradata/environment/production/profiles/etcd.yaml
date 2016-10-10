@@ -1,0 +1,17 @@
+---
+etcd::etcd_name: '%{::hostname}'
+etcd::listen_client_urls: 'http://0.0.0.0:2379,http://0.0.0.0:4001'
+etcd::listen_peer_urls: 'http://0.0.0.0:2380,http://0.0.0.0:7001'
+etcd::initial_advertise_peer_urls: "http://%{::ipaddress_ens32}:2380"
+etcd::advertise_client_urls: "http://%{::ipaddress_ens32}:2379,http://%{::ipaddress_ens32}:4001"
+etcd::initial_cluster: ['etcd-01=http://etcd-01.kube.accuratus-software.pl:2380','etcd-02=http://etcd-02.kube.accuratus-software.pl:2380','etcd-03=http://etcd-03.kube.accuratus-software.pl:2380']
+etcd::data_dir: '/var/lib/etcd/%{::hostname}.etcd'
+etcd::ensure: 'present'
+etcd::etcd_packagename: 'etcd'
+etcd::service_ensure: 'running'
+etcd::proxy: "off"
+
+################################
+# common part, DO NOT EDIT!!!! #
+################################
+profiles::etcd::cluster_network: "%{hiera('environment::vagrant::common::cluster_ip_range')}"

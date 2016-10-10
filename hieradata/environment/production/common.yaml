@@ -1,0 +1,31 @@
+---
+# Common k8s configuration part:
+environment::production::common::cluster_ip_range: '10.1.0.0/16'
+environment::production::common::k8s_lb_address: 'lb-01.kube.accuratus-software.pl'
+environment::production::common::etcd_lb_address: 'lb-01.kube.accuratus-software.pl'
+environment::production::common::etcd_nodes: ['http://lb-01.kube.accuratus-software.pl:2379/']
+environment::production::common::etcd_prefix: 'cluster.local'
+
+# Kubernetes frontend - Cockpit
+# Open webbrowser: http://192.168.0.10:9090/
+# auth with: root/vagrant
+profiles::kubernetes::k8s_gui: 'true'
+
+# SSL configuration:
+kubernetes::generate_certs: 'false'
+
+# Create kubernetes namespaces
+profiles::kubernetes::k8s_create_namespaces: 'true'
+profiles::kubernetes::k8s_namespaces:
+  - 'kube-system'
+  - 'development'
+  - 'production'
+# Setup namespaces hardware limits
+
+# Setup and run DNS server inside k8s cluster:
+
+# Setup and run GlusterFS server for PersistanceVolumes
+
+# Setup and run PersistanceVolumes for pods
+
+# Setup and run LoadBalancer(pods entry point)
