@@ -236,4 +236,7 @@ KUBE_API_ARGS="<% -%>
 <% if @apisrv_watch_cache_sizes then -%>
  --watch-cache-sizes=<%= scope['kubernetes::master::apiserver::apisrv_watch_cache_sizes'] -%>
 <% end -%>
+<% if @apisrv_extra_args then -%>
+ <%= scope['kubernetes::master::apiserver::apisrv_extra_args'] -%>
+<% end -%>
 "

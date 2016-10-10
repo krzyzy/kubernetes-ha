@@ -304,6 +304,10 @@
 #   for file-filtered logging
 #   Defaults to none
 #
+# [*conman_extra_args*]
+#   Extra arguments for connection manager daemon.
+#   ** Defaults to non
+#
 class kubernetes::master::controller_manager (
   $conman_conman_service_ensure                       = $kubernetes::master::params::conman_service_ensure,
   $conman_conman_service_enable                       = $kubernetes::master::params::conman_service_enable,
@@ -364,6 +368,7 @@ class kubernetes::master::controller_manager (
   $conman_terminated_pod_gc_threshold                 = $kubernetes::master::params::conman_terminated_pod_gc_threshold,
   $conman_v                                           = $kubernetes::master::params::conman_v,
   $conman_vmodule                                     = $kubernetes::master::params::conman_vmodule,
+  $conman_extra_args                                  = $kubernetes::master::params::conman_extra_args,
 ) inherits kubernetes::master::params {
   include ::kubernetes::master
 

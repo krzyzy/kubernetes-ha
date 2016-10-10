@@ -118,6 +118,10 @@
 #   for file-filtered logging
 #   Defaults to none
 #
+# [*scheduler_extra_args*]
+#   Extra arguments for scheduler daemon.
+#   ** Defaults to non
+#
 class kubernetes::master::scheduler (
   $scheduler_service_ensure               = $kubernetes::master::params::scheduler_service_ensure,
   $scheduler_service_enable               = $kubernetes::master::params::scheduler_service_enable,
@@ -143,6 +147,7 @@ class kubernetes::master::scheduler (
   $scheduler_stderrthreshold              = $kubernetes::master::params::scheduler_stderrthreshold,
   $scheduler_v                            = $kubernetes::master::params::scheduler_v,
   $scheduler_vmodule                      = $kubernetes::master::params::scheduler_vmodule,
+  $scheduler_extra_args                   = $kubernetes::master::params::scheduler_extra_args,
 ) inherits kubernetes::master::params {
   include ::kubernetes::master
   file { '/etc/kubernetes/scheduler':

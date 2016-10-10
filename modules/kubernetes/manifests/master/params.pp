@@ -82,6 +82,7 @@ class kubernetes::master::params {
   $apisrv_vmodule = undef
   $apisrv_watch_cache = true
   $apisrv_watch_cache_sizes = undef
+  $apisrv_extra_args = undef
   # controller-manager config defaults
   $conman_service_ensure = "running"
   $conman_service_enable = "true"
@@ -142,6 +143,7 @@ class kubernetes::master::params {
   $conman_terminated_pod_gc_threshold = 12500
   $conman_v = 0
   $conman_vmodule = undef
+  $conman_extra_args = undef
   # scheduler config defaults
   $scheduler_service_ensure = "running"
   $scheduler_service_enable = true
@@ -167,4 +169,5 @@ class kubernetes::master::params {
   $scheduler_stderrthreshold = 2
   $scheduler_v = 0
   $scheduler_vmodule = undef
+  $scheduler_extra_args  = undef
 }

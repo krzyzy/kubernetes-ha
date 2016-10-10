@@ -169,4 +169,7 @@ KUBE_CONTROLLER_MANAGER_ARGS="<% -%>
 <% if @conman_vmodule then -%>
  --vmodule=<%= scope['kubernetes::master::controller_manager::conman_vmodule'] -%>
 <% end -%>
+<% if @conman_extra_args then -%>
+ <%= scope['kubernetes::master::controller_manager::conman_extra_args'] -%>
+<% end -%>
 "

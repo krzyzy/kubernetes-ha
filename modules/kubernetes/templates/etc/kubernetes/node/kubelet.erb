@@ -347,4 +347,7 @@ KUBELET_ARGS="<% -%>
 <% if @kubelet_volume_stats_agg_period -%>
  --volume-stats-agg-period=<%= scope['kubernetes::node::kubelet::kubelet_volume_stats_agg_period'] -%>
 <% end -%>
+<% if @kubelet_extra_args -%>
+ <%= scope['kubernetes::node::kubelet::kubelet_extra_args'] -%>
+<% end -%>
 "

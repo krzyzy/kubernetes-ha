@@ -394,7 +394,11 @@
 #   comma separated. The individual override format: resource#size, where
 #   size is a number. It takes effect when watch-cache is enabled.
 #   ** Defaults to none
-
+#
+# [*apisrv_extra_args*]
+#   Extra arguments for kubelet daemon.
+#   ** Defaults to non
+#
 class kubernetes::master::apiserver (
   $apisrv_service_ensure                    = $kubernetes::master::params::apisrv_service_ensure,
   $apisrv_service_enable                    = $kubernetes::master::params::apisrv_service_enable,
@@ -475,6 +479,7 @@ class kubernetes::master::apiserver (
   $apisrv_vmodule                           = $kubernetes::master::params::apisrv_vmodule,
   $apisrv_watch_cache                       = $kubernetes::master::params::apisrv_watch_cache,
   $apisrv_watch_cache_sizes                 = $kubernetes::master::params::apisrv_watch_cache_sizes,
+  $apisrv_extra_args                        = $kubernetes::master::params::apisrv_extra_args,
 ) inherits kubernetes::master::params {
 
   file { '/etc/kubernetes/apiserver':

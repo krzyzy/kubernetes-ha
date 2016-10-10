@@ -84,4 +84,7 @@ KUBE_PROXY_ARGS="<% -%>
 <% if @kubeproxy_vmodule -%>
  --vmodule=<%= scope['kubernetes::node::kube_proxy::kubeproxy_vmodule'] -%>
 <% end -%>
+<% if @kubeproxy_extra_args -%>
+ <%= scope['kubernetes::node::kube_proxy::kubeproxy_extra_args'] -%>
+<% end -%>
 "

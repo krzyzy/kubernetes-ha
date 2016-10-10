@@ -142,6 +142,10 @@
 #   Comma-separated list of pattern=N settings for file-filtered logging.
 #   ** Defaults to undef
 #
+# [*kubeproxy_extra_args*]
+#   Extra arguments for kubeproxy daemon.
+#   ** Defaults to non
+#
 class kubernetes::node::kube_proxy (
   $kubeproxy_service_ensure                     = $kubernetes::node::params::kubeproxy_service_ensure,
   $kubeproxy_service_enable                     = $kubernetes::node::params::kubeproxy_service_enable,
@@ -172,6 +176,7 @@ class kubernetes::node::kube_proxy (
   $kubeproxy_udp_timeout                        = $kubernetes::node::params::kubeproxy_udp_timeout,
   $kubeproxy_v                                  = $kubernetes::node::params::kubeproxy_v,
   $kubeproxy_vmodule                            = $kubernetes::node::params::kubeproxy_vmodule,
+  $kubeproxy_extra_args                         = $kubernetes::node::params::kubeproxy_extra_args,
 ) inherits kubernetes::node::params {
   include ::kubernetes::node
 

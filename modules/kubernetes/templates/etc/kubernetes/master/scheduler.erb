@@ -64,4 +64,7 @@ KUBE_SCHEDULER_ARGS="<% -%>
 <% if @scheduler_vmodule then -%>
  --vmodule=<%= scope['kubernetes::master::scheduler::scheduler_vmodule'] -%>
 <% end -%>
+<% if @scheduler_extra_args -%>
+ <%= scope['kubernetes::master::scheduler::scheduler_extra_args'] -%>
+<% end -%>
 "

@@ -570,6 +570,10 @@
 #   usage for all pods and volumes.  To disable volume calculations, set to 0.
 #   ** Defaults to '1m0s'
 #
+# [*kubelet_extra_args*]
+#   Extra arguments for kubelet daemon.
+#   ** Defaults to non
+
 class kubernetes::node::kubelet (
   $kubelet_service_ensure                         = $kubernetes::node::params::kubelet_service_ensure,
   $kubelet_service_enable                         = $kubernetes::node::params::kubelet_service_enable,
@@ -688,6 +692,7 @@ class kubernetes::node::kubelet (
   $kubelet_vmodule                                = $kubernetes::node::params::kubelet_vmodule,
   $kubelet_volume_plugin_dir                      = $kubernetes::node::params::kubelet_volume_plugin_dir,
   $kubelet_volume_stats_agg_period                = $kubernetes::node::params::kubelet_volume_stats_agg_period,
+  $kubelet_extra_args                             = $kubernetes::node::params::kubelet_extra_args,
 ) inherits kubernetes::node::params {
   include ::kubernetes::node
 
