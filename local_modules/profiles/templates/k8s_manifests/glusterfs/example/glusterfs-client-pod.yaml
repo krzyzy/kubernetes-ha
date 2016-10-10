@@ -19,6 +19,6 @@ spec:
   - name: gluster-default-volume
     glusterfs:
       endpoints: glusterfs-cluster
-      path: "vol0001"
+      path: "media-storage"
       readOnly: false
   restartPolicy: Always
