@@ -1,0 +1,20 @@
+    <properties>
+        <project.scm.id>my-scm-server</project.scm.id>
+    </properties>
+    <scm>
+        <url>http://gitlab.int.accuratus-software.pl/tools/monitoring</url>
+        <connection>scm:git:http://gitlab.int.accuratus-software.pl/tools/monitoring.git</connection>
+        <developerConnection>scm:git:http://gitlab.int.accuratus-software.pl/tools/monitoring.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    <distributionManagement>
+        <repository>
+            <id>Accuratus Maven Repository</id>
+            <name>Accuratus release repository</name>
+            <url>http://nexus.int.accuratus-software.pl/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>Accuratus Maven Repository</id>
+            <url>http://nexus.int.accuratus-software.pl/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
